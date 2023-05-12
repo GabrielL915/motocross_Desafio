@@ -62,6 +62,7 @@ class Piloto {
       this.velocidade.rotacao = 5
       Tecla.ArrowUp = 1
       this.posicao.x -= velocidade * 5
+      restartGame()
     }
 
     const angulo = Math.atan2(
@@ -116,6 +117,16 @@ function lerp(start: number, end: number, t: number) {
 function noise(x: number) {
   x = (x * 0.005) % dunas
   return lerp(perm[Math.floor(x)], perm[Math.ceil(x)], x - Math.floor(x))
+}
+
+function restartGame() {
+  velocidade = 0
+  piloto.posicao.x = width / 2
+  //piloto.posicao.y = 0
+  piloto.velocidade.vertical = 0
+  piloto.velocidade.rotacao = 0
+  piloto.rotacao = 0
+  jogando = true
 }
 
 function desenhaCenario() {
