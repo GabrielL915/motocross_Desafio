@@ -62,7 +62,9 @@ class Piloto {
       this.velocidade.rotacao = 5
       Tecla.ArrowUp = 1
       this.posicao.x -= velocidade * 5
-      restartGame()
+      setTimeout(() => {
+        restartGame()
+      }, 90)
     }
 
     const angulo = Math.atan2(
